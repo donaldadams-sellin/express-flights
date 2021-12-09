@@ -7,6 +7,9 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var flightsRouter = require('./routes/flights');
 
+require('dotenv').config();
+require('./config/database')
+
 var app = express();
 
 // view engine setup
