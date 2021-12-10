@@ -44,6 +44,11 @@ function create(req, res) {
 
 function show(req, res){
     Flight.findById(req.params.id, function(err, flight){
+        flight.destinations.sort(function(d1, d2){
+            if( d1.arrival < d2.arrival) return -1;
+            if( d1.arrival > d2.arrival) return 1;
+            return 0; 
+        })
         res.render('flights/show', {
             flight
         })
