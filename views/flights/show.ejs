@@ -49,11 +49,11 @@
     <h3>Add Destination</h3>
     <form method="POST" action="/flights/<%= flight._id %>/destinations">
         <label>Airport: <select name="airport">
-            <option value="DEN">DEN</option>
-            <option value="AUS">AUS</option>
-            <option value="DFW">DFW</option>
-            <option value="LAX">LAX</option>
-            <option value="SAN">SAN</option>
+            <option <%= flight.airport === 'DEN' || flight.destinations.some(destination => destination.airport === 'DEN') ? 'disabled' : '' %> value="DEN">DEN</option>
+            <option <%= flight.airport === 'AUS' || flight.destinations.some(destination => destination.airport === 'AUS') ? 'disabled' : '' %> value="AUS">AUS</option>
+            <option <%= flight.airport === 'DFW' || flight.destinations.some(destination => destination.airport === 'DFW') ? 'disabled' : '' %> value="DFW">DFW</option>
+            <option <%= flight.airport === 'LAX' || flight.destinations.some(destination => destination.airport === 'LAX') ? 'disabled' : '' %> value="LAX">LAX</option>
+            <option <%= flight.airport === 'SAN' || flight.destinations.some(destination => destination.airport === 'SAN') ? 'disabled' : '' %> value="SAN">SAN</option>
             </select>
             <label>Arrival Date: <input name="arrival" type="datetime-local"></label>
         <br>
