@@ -23,13 +23,9 @@ function create (req, res){
 }
 
 function deleteTicket(req, res){
-    let ticketId = req.params.id;
-    console.log(req.body);
-    Ticket.findByIdAndDelete(ticketId, function(err, ticket){
-        console.log(ticketId);
-
-
-            res.redirect(`/flights/${ticket.flight}`)
+    Ticket.findByIdAndDelete(req.params.id, function(err, ticket){
+    if (err) console.log(err);
+        res.redirect(`/flights/${ticket.flight}`);
         
     })
 }
