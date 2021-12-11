@@ -62,7 +62,7 @@
     <br><br>
     <h3>Tickets</h3>
     <ul class="list-group">
-        <%- tickets.map(t =>`<li class="list-group-item">Seat: ${t.seat} Price: ${t.price}</li>`).join('') %>
+        <%- tickets.map(t =>`<li class="list-group-item">Seat: ${t.seat} Price: ${t.price}    <form class="d-inline-flex" action="/tickets/${t._id}?_method=DELETE" method="POST"><button class="btn btn-danger" type="submit">x</button></form></li>`).join('') %>
     </ul>
     <br>
     <a class="btn btn-dark"href="/flights/<%= flight._id %>/tickets/new">Add a ticket</a>

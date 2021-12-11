@@ -1,9 +1,9 @@
-const Flight = require('../models/flight');
 const Ticket = require('../models/ticket');
 
 module.exports= {
     new: newTicket,
-    create
+    create,
+    delete: deleteTicket,
 }
 
 function newTicket (req, res){
@@ -20,4 +20,16 @@ function create (req, res){
         res.redirect(`/flights/${req.params.id}`)
     })
     
+}
+
+function deleteTicket(req, res){
+    let ticketId = req.params.id;
+    console.log(req.body);
+    Ticket.findByIdAndDelete(ticketId, function(err, ticket){
+        console.log(ticketId);
+
+
+            res.redirect(`/flights/${ticket.flight}`)
+        
+    })
 }
