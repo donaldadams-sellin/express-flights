@@ -25,7 +25,7 @@
             </td>
         </tr>
     </table>
-
+    <br><br>
     <h2>Flight Destinations</h2>
     <table class="table">
         <thead>
@@ -45,7 +45,7 @@
            <% }) %>
         </tbody>
     </table>
-
+    <br><br>
     <h3>Add Destination</h3>
     <form method="POST" action="/flights/<%= flight._id %>/destinations">
         <label>Airport: <select name="airport">
@@ -59,4 +59,11 @@
         <br>
         <button class="btn btn-dark" type="submit">Submit</button>
     </form>
+    <br><br>
+    <h3>Tickets</h3>
+    <ul class="list-group">
+        <%- tickets.map(t =>`<li class="list-group-item">Seat: ${t.seat} Price: ${t.price}</li>`).join('') %>
+    </ul>
+    <br>
+    <a class="btn btn-dark"href="/flights/<%= flight._id %>/tickets/new">Add a ticket</a>
     <%- include('../partials/footer.ejs') %>

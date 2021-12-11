@@ -1,0 +1,11 @@
+<%- include('../partials/header.ejs') %>
+
+<h2>Add a Ticket</h2>
+<form action="/flights/<%= flightId %>/tickets" method="POST">
+<label>Add a seat, must be between A1 through F99: <input name="seat" required pattern="[A-F][1-9]\d?"></label>
+<br>
+<label>Price: <input name="price" type="number"></label>
+<button type="submit">Submit</button>
+</form>
+
+<%- include('../partials/footer.ejs') %>
